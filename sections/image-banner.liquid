@@ -130,6 +130,10 @@
             <div class="banner__text rte {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
               <p>{{ block.settings.text }}</p>
             </div>
+          {%- when 'logo' -%}
+          <div class="banner_logo {{ block.settings.image_style }}" {{ block.shopify_attributes }}>
+          {{ block.settings.logo | image_url: width: 700 | image_tag }}
+          </div>
           {%- when 'buttons' -%}
             <div
               class="banner__buttons{% if block.settings.button_label_1 != blank and block.settings.button_label_2 != blank %} banner__buttons--multiple{% endif %}"
@@ -404,6 +408,18 @@
       ]
     },
     {
+      "type": "logo",
+      "name": "logo",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "logo",
+        },
+      ],
+    },
+    {
       "type": "text",
       "name": "t:sections.image-banner.blocks.text.name",
       "limit": 1,
@@ -486,6 +502,9 @@
       "blocks": [
         {
           "type": "heading"
+        },
+        {
+          "type": "logo"
         },
         {
           "type": "text"

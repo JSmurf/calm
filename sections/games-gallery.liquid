@@ -1,0 +1,25 @@
+<div>
+  <ul style="decoration: none;">
+{% for game in shop.metaobjects.game.values %}
+  <li>
+    <a href="{{ game.system.url }}" class="game-link">
+  {{ game.logo.value.image | image_url: width: 400 | image_tag: class: 'game-logo'}}
+    </a>
+  </li>
+{% endfor %}
+  </ul>
+</div>
+
+{% schema %}
+{
+  "name": "Games Gallery",
+  "tag": "section",
+  "class": "section",
+"presets": [
+      {
+        "name": "custom-text",
+        "category": "Custom"
+      }
+    ]
+}
+{% endschema %}
