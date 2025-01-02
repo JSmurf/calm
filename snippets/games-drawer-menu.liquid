@@ -1,0 +1,122 @@
+{% comment %}
+A custom generated drawer menu for the Games page and pages for games and sets.
+This is the header-drawer snippet, with instances of "link" replaced with hardcoded references to Games
+The child links (link.links) are replaced with the game metaobjects
+The grandchild links (childlink.links) are replaced with the set metaobjects
+{% endcomment %}
+
+<details id="Details-menu-drawer-menu-item-{{ forloop.index }}">
+  <summary
+    id="GamesDrawer"
+    class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if link.child_active %} menu-drawer__menu-item--active{% endif %}"
+  >
+    <a
+      id="DrawerMenu-GamesLink"
+      class="link--text"
+      href="{{ pages.games.url }}"
+      style="text-decoration:none;"
+      >
+      Games
+    </a>
+    <span class="svg-wrapper">
+      {{- 'icon-arrow.svg' | inline_asset_content -}}
+    </span>
+    <span class="svg-wrapper">
+      {{- 'icon-caret.svg' | inline_asset_content -}}
+    </span>
+  </summary>
+  <div
+    id="link-{{ pages.games.handle | escape }}"
+    class="menu-drawer__submenu has-submenu gradient motion-reduce"
+    tabindex="-1"
+  >
+    <div class="menu-drawer__inner-submenu">
+      <button class="menu-drawer__close-button link link--text focus-inset" aria-expanded="true">
+        <span class="svg-wrapper">
+          {{- 'icon-arrow.svg' | inline_asset_content -}}
+        </span>
+          Games
+      </button>
+      {% assign games = shop.metaobjects.game.values | sort: "sortname" %}
+      <ul class="menu-drawer__menu list-menu" role="list" tabindex="-1">
+        {%- for game in games -%}
+          <li>
+            {% assign sets = shop.metaobjects.set.values | where: 'game_id', game.game_id %}
+            {%- if sets == blank -%}
+              <a
+                id="HeaderDrawer-{{ game.handle }}"
+                href="{{ game.system.url }}"
+                class="menu-drawer__menu-item link link--text list-menu__item focus-inset{% if game.system.url == request.path %} menu-drawer__menu-item--active{% endif %}"
+                {% if game.system.url == request.path %}
+                  aria-current="page"
+                {% endif %}
+              >
+                {{ game.name | escape }}
+              </a>
+            {%- else -%}
+              <details id="Details-menu-drawer-{{ game.handle }}">
+                <summary
+                  id="HeaderDrawer-{{ game.handle }}"
+                  class="menu-drawer__menu-item link link--text list-menu__item focus-inset"
+                >
+              <a
+                id="HeaderDrawer-{{ game.handle }}"
+                href="{{ game.system.url }}"
+                class="link-text link"
+                style="text-decoration: none; font-size: 1.8rem;"
+                {% if game.system.url == request.path %}
+                  aria-current="page"
+                {% endif %}
+              >
+                {{ game.name | escape }}
+              </a>
+                  <span class="svg-wrapper">
+                    {{- 'icon-arrow.svg' | inline_asset_content -}}
+                  </span>
+                  <span class="svg-wrapper">
+                    {{- 'icon-caret.svg' | inline_asset_content -}}
+                  </span>
+                </summary>
+                <div
+                  id="childlink-{{ game.handle | escape }}"
+                  class="menu-drawer__submenu has-submenu gradient motion-reduce"
+                >
+                  <button
+                    class="menu-drawer__close-button link link--text focus-inset"
+                    aria-expanded="true"
+                  >
+                    <span class="svg-wrapper">
+                      {{- 'icon-arrow.svg' | inline_asset_content -}}
+                    </span>
+                    {{ game.title | escape }}
+                  </button>
+                  <ul
+                    class="menu-drawer__menu list-menu"
+                    role="list"
+                    tabindex="-1"
+                  >
+                    {%- for set in sets -%}
+                      <li>
+                        <a
+                          id="HeaderDrawer-{{ set.handle }}"
+                          href="{{ set.system.url }}"
+                          class="menu-drawer__menu-item link link--text list-menu__item focus-inset{% if set.system.url == request.path %} menu-drawer__menu-item--active{% endif %}"
+                          {% if set.system.url == request.path %}
+                            aria-current="page"
+                          {% endif %}
+                        >
+                          {{ set.name | escape }}
+                        </a>
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                </div>
+              </details>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  </div>
+</details>
+

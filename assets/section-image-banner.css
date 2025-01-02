@@ -10,6 +10,14 @@
   text-align: center;
 }
 
+.banner_logo > img {
+  width: 60vw;
+  height: auto;
+  aspect-ratio: inherit;
+  max-width: 700px;
+  filter: drop-shadow(rgba(235, 245, 255, 0.3) 0px 0px 4rem);
+}
+
 /* Needed for gradient continuity with or without animation, the transform scopes the gradient to its container which happens already when animation are turned on */
 .banner__box.gradient {
   transform: perspective(0);

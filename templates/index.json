@@ -9,44 +9,20 @@
  */
 {
   "sections": {
-    "image_banner": {
+    "image_banner_PdwJeH": {
       "type": "image-banner",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "<strong>Browse our latest products</strong>",
-            "heading_size": "h0"
-          }
-        },
-        "button": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "button"
-      ],
       "settings": {
         "image": "shopify://shop_images/IMG_8862.jpg",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
-        "desktop_content_position": "bottom-center",
+        "desktop_content_position": "top-center",
         "show_text_box": false,
         "desktop_content_alignment": "center",
-        "color_scheme": "scheme-2",
+        "color_scheme": "",
         "image_behavior": "ambient",
         "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "stack_images_on_mobile": true,
+        "show_text_below": true
       }
     },
     "featured_collection": {
@@ -58,12 +34,12 @@
         "show_description": false,
         "description_style": "body",
         "collection": "all",
-        "products_to_show": 4,
-        "columns_desktop": 4,
+        "products_to_show": 15,
+        "columns_desktop": 6,
         "full_width": true,
         "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
+        "view_all_style": "outline",
+        "enable_desktop_slider": true,
         "color_scheme": "scheme-1",
         "image_ratio": "adapt",
         "image_shape": "default",
@@ -77,6 +53,53 @@
         "padding_bottom": 36
       }
     },
+    "image_with_text_4AJwmV": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_eFV8a6": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>We have teamed up with PDK Nine to offer a diverse selection of products at competitive prices, tailored just for you.</strong>",
+            "heading_size": "h2"
+          }
+        },
+        "text_7xKUfK": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_style": "body"
+          }
+        },
+        "button_YWnkxq": {
+          "type": "button",
+          "settings": {
+            "button_label": "PDK NINE Instagram",
+            "button_link": "https://www.instagram.com/pdknine/",
+            "button_style_secondary": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_eFV8a6",
+        "text_7xKUfK",
+        "button_YWnkxq"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/PDK_nine_photo.jpg",
+        "height": "adapt",
+        "desktop_image_width": "small",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "center",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "scheme-7d8a76dd-0704-459b-af62-ebaaa321a734",
+        "color_scheme": "scheme-7d8a76dd-0704-459b-af62-ebaaa321a734",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "multicolumn_k8N9mU": {
       "type": "multicolumn",
       "blocks": {
@@ -85,7 +108,7 @@
           "settings": {
             "image": "shopify://shop_images/IMG_8457.png",
             "title": "PB 151",
-            "text": "<p>A husband and wife team, a US Army Veteran and a dedicated teacher, present our curated collection of Disney and Pokemon single cards, accompanied by professionally graded slabs. Expect great prices, awesome deals, and a fantastic time exploring our passion for both communities. As fellow collectors, we're committed to helping you complete your collections.</p>",
+            "text": "",
             "link_label": "Live on Whatnot",
             "link": "https://www.whatnot.com/user/pb151"
           }
@@ -93,11 +116,11 @@
         "column_MLRrHC": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/Bonafide_BW.jpg",
-            "title": "Bonafide Cards and Collectibles",
-            "text": "<p>Lorcana, Football, Pokemon, Bulk Grading, sealed wax distribution & consignment services -- Bonafide Cards & Collectibles is a premiere Whatnot streamer setting the standard for entertainment, service, product and value. We are focused on making sure everyone feels welcome, seen and taken care of. Don't sit in another stream and feel like just a number, follow us & join a community built around it's people. Our idea of success is growing the hobby, sharing knowledge & making sure its accessible to everyone all while also making you feel like family. So next time your looking to enjoy a show, find a deal, or get help with your collection remember to \"Keep it Bonafide!\" and come join one of our live streams and introduce yourself! 🫶🏼</p>",
+            "image": "shopify://shop_images/IMG_8969.png",
+            "title": "Swiney",
+            "text": "",
             "link_label": "Live on whatnot",
-            "link": "https://www.whatnot.com/user/bonafidecardsandcollectibles"
+            "link": "https://www.whatnot.com/user/swiney1?referringSource=autocomplete"
           }
         },
         "column_UX8xHW": {
@@ -105,28 +128,50 @@
           "settings": {
             "image": "shopify://shop_images/pocketfun_s_logo.png",
             "title": "Crithalla",
-            "text": "<p>Lorcana Player • Top 64 Atlanta DLC 🃏TTRPG Podcast Host ⚔️1/5 of the Inkboyz 🔥Find The Crithalla Podcast on all of your favorite podcast apps 🤙🏻</p>",
+            "text": "",
             "link_label": "Live on Whatnot",
             "link": "https://www.whatnot.com/user/crithalla?referringSource=autocomplete?app=web&sharing_channel=copyLink"
+          }
+        },
+        "column_PCxzKN": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/INKBOYZ_LOGO_DRIPPY_COLORS.png",
+            "title": "Tymsynk",
+            "text": "",
+            "link_label": "Live on Whatnot",
+            "link": "https://www.whatnot.com/user/tymsynk?referringSource=listings_serp?app=web&sharing_channel=copyLink"
+          }
+        },
+        "column_4ck9pt": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/lorcanadad.png",
+            "title": "Lorcanadad",
+            "text": "",
+            "link_label": "Live on Whatnot",
+            "link": "https://www.whatnot.com/user/lorcanadad?referringSource=autocomplete?app=web&sharing_channel=copyLink"
           }
         }
       },
       "block_order": [
         "column_VrgLkB",
         "column_MLRrHC",
-        "column_UX8xHW"
+        "column_UX8xHW",
+        "column_PCxzKN",
+        "column_4ck9pt"
       ],
       "settings": {
         "title": "Recommended Streamers",
         "heading_size": "h0",
         "image_width": "full",
         "image_ratio": "circle",
-        "columns_desktop": 3,
+        "columns_desktop": 5,
         "column_alignment": "left",
         "background_style": "primary",
         "button_label": "",
         "button_link": "",
-        "color_scheme": "",
+        "color_scheme": "scheme-1",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
         "padding_top": 28,
@@ -135,8 +180,9 @@
     }
   },
   "order": [
-    "image_banner",
+    "image_banner_PdwJeH",
     "featured_collection",
+    "image_with_text_4AJwmV",
     "multicolumn_k8N9mU"
   ]
 }

@@ -1,0 +1,152 @@
+{% style %}
+.menu-game-logo {
+height: 5rem;
+width: auto;
+filter: drop-shadow(0px 1px 0px rgba(17, 17, 26, 0.1))
+        drop-shadow(0px 8px 24px rgba(17, 17, 26, 0.1)) 
+        drop-shadow(0px 16px 24px rgba(17, 17, 26, 0.4));
+}
+.menu-game-logo:hover {
+filter: drop-shadow(5px 5px 15px #d06)
+}
+.game-logo-dropdown {
+    width: 90vw;
+    position: absolute;
+    display: flex;
+    left: 5vw;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-around;
+    align-items: center;
+    background: var(--gradient-background);
+    background-attachment: fixed;
+    border-radius:  15px;
+    padding-bottom: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+.set-dropdown {
+width: fit-content;
+left: 0rem;
+padding: 1rem;
+display: flex;
+flex-direction: column;
+}
+
+{% endstyle %}
+
+<details id="Details-HeaderMenu-Games">
+  <summary
+    id="HeaderMenu-Games-Summary"
+    class="header__menu-item list-menu__item link focus-inset"
+    >
+    <a
+      id="HeaderMenu-GamesLink"
+      class="list-menu__item link--text focus-inset"
+      href="{{ pages.games.url }}"
+      style="text-decoration:none;"
+      >
+      <span
+        {%- if link.child_active %}
+         class="header__active-menu-item"
+        {% endif %}
+        >
+        Games
+      </span>
+    </a>
+    {{- 'icon-caret.svg' | inline_asset_content -}}
+    </summary>
+
+
+{% assign games = shop.metaobjects.game.values | sort: "sortname" %}
+
+<ul class="list-menu list-menu--inline game-logo-dropdown" role="list">
+{% for game in games %}
+  {% assign sets = shop.metaobjects.set.values | where: 'game_id', game.game_id   %}
+      <li>
+        {%- if sets != blank -%}
+          <header-menu>
+            <details id="Details-HeaderMenu-Games-{{ forloop.index }}" class="mega-menu">
+              <summary
+                id="HeaderMenu-{{ game.handle }}"
+                class="header__menu-item list-menu__item link focus-inset"
+              >
+    <a href="{{ game.system.url }}" class="game-link">
+                <span
+                  {%- if link.child_active %}
+                    class="header__active-menu-item"
+                  {% endif %}
+                >
+                {{ game.logo.value.image | image_url: width: 400 | image_tag: class: 'menu-game-logo'}}
+                </span>
+    </a>
+                {{- 'icon-caret.svg' | inline_asset_content -}}
+              </summary>
+              <div
+                id="MegaMenu-Games-Content-{{ forloop.index }}"
+                class="mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup"
+                tabindex="-1"
+              >
+                <ul
+                  class="list-menu list-menu--inline game-logo-dropdown set-dropdown"
+                  role="list"
+                >
+                  {%- for set in sets -%}
+                    <li>
+                      <a
+                        id="HeaderMenu-{{ game.handle }}-{{ set.handle }}"
+                        href="{{ set.system.url }}"
+                        class="mega-menu__link mega-menu__link--level-2 link{% if childlink.current %} mega-menu__link--active{% endif %}"
+                        {% if childlink.current %}
+                          aria-current="page"
+                        {% endif %}
+                      >
+                      {{ set.image.value.image | image_url: width: 400 | image_tag: class: 'menu-game-logo'}}
+                      </a>
+                      {%- if childlink.links != blank -%}
+                        <ul class="list-menu list-menu--inline game-logo-dropdown" role="list">
+                          {%- for grandchildlink in childlink.links -%}
+                            <li>
+                              <a
+                                id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
+                                href="{{ grandchildlink.url }}"
+                                class="mega-menu__link link{% if grandchildlink.current %} mega-menu__link--active{% endif %}"
+                                {% if grandchildlink.current %}
+                                  aria-current="page"
+                                {% endif %}
+                              >
+                                {{ grandchildlink.title | escape }}
+                              </a>
+                            </li>
+                          {%- endfor -%}
+                        </ul>
+                      {%- endif -%}
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              </div>
+            </details>
+          </header-menu>
+        {%- else -%}
+          <a
+            id="HeaderMenu-{{ game.handle }}"
+            href="{{ game.system.url }}"
+            class="header__menu-item list-menu__item link link--text focus-inset"
+            {% if link.current %}
+              aria-current="page"
+            {% endif %}
+          >
+            <span
+              {%- if link.current %}
+                class="header__active-menu-item"
+              {% endif %}
+            >
+            {{ game.logo.value.image | image_url: width: 200 | image_tag: class: 'menu-game-logo'}}
+            </span>
+          </a>
+        {%- endif -%}
+      </li>
+{% endfor %}
+</ul>
+
+</details>

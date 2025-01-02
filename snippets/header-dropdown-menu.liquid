@@ -5,11 +5,21 @@
   {% render 'header-dropdown-menu' %}
 {% endcomment %}
 
+{% style %}
+.header__inline-menu {
+margin-left: auto;
+margin-right: auto;
+}
+{% endstyle %}
+
 <nav class="header__inline-menu">
   <ul class="list-menu list-menu--inline" role="list">
     {%- for link in section.settings.menu.links -%}
       <li>
-        {%- if link.links != blank -%}
+        {%-  if link.handle == "games" -%}
+          {% render "games-logo-dropdown-menu" %}
+        {%- else -%}
+          {%- if link.links != blank and link.handle != "games" -%}
           <header-menu>
             <details id="Details-HeaderMenu-{{ forloop.index }}">
               <summary
@@ -111,6 +121,7 @@
             </span>
           </a>
         {%- endif -%}
+      {%- endif -%}
       </li>
     {%- endfor -%}
   </ul>
